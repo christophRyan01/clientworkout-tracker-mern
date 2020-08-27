@@ -20,8 +20,8 @@ const Navbar = () => {
     return (
       <nav className="navbar" id="navbar" >
         <Link to="/" className="navbar-brand navbar-left"> <img src={Sun} style={{
-              width: 100,
-              height: 100
+              width: 150,
+              height: 150
             }} alt='' /></Link>
           <div className="buttons" >
                     <ul className="nav ">
