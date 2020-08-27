@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import iframe from 'react-iframe'
 import axios from 'axios';
+import '../App.css'
+
 
 const Exercise = props => (
   <tr>

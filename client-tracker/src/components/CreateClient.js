@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../App.css'
+
 
 export default class CreateClient extends Component {
   constructor(props) {
@@ -70,8 +72,6 @@ export default class CreateClient extends Component {
       poundslost: this.state.poundslost,
       ontrack: this.state.ontrack,
     }
-
-    console.log(client);
 
     axios.post('http://localhost:4000/users/create-client', client)
       .then(res => console.log(res.data));

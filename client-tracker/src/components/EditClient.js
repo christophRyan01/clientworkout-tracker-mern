@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../App.css'
+
 
 export default class CreateClient extends Component {
   constructor(props) {
@@ -102,8 +104,6 @@ export default class CreateClient extends Component {
       poundslost: this.state.poundslost,
       ontrack: this.state.ontrack,
     }
-
-    console.log(Client);
 
     axios.post('http://localhost:4000/users/update/'+this.props.match.params.id, Client)
       .then(res => console.log(res.data));

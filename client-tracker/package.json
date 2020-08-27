@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.0.0",
     "@okta/okta-react": "^3.0.4",
     "@okta/okta-signin-widget": "^4.3.3",
     "axios": "^0.20.0",
@@ -16,6 +17,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
+    "react-use-auth": "^0.7.5",
     "yarn": "^1.22.4"
   },
   "scripts": {

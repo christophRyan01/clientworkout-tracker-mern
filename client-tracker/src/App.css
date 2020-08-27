@@ -24,18 +24,6 @@ body {
   align-content: center;
 }
 
-/* .custom {
-    background: #fff;
-    color: red;
-    border: 2px solid red;
-    border-radius: 3px;
-    padding: 5px 10px;
-    text-transform: uppercase;
-  } */
-
-  .button {
-background-color: #fff;  }
-
 .nav-link, a {
   color: white;
   text-decoration: none;
@@ -44,4 +32,9 @@ background-color: #fff;  }
 .bmi {
   display: flex;
   justify-content: center;
+}
+h3,th {
+  font-family: sans-serif;
+  font-style: italic;
+  font-weight: 600;
 }

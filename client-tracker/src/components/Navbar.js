@@ -1,32 +1,25 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { withOktaAuth } from '@okta/okta-react';
 import Button from 'react-bootstrap/Button';
+import {useAuth0} from '@auth0/auth0-react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sun from '../photos/UGymlog.png'
 import '../App.css'
 
-export default withOktaAuth(class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-  }
 
-  async login() {
-    this.props.authService.login('/');
-  }
+const Navbar = () => {
 
-  async logout() {
-    this.props.authService.logout('/');
-  }
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+  } = useAuth0();
 
-  render() {
-    if (this.props.authState.isPending) return null;
-
-    const button = this.props.authState.isAuthenticated ?
-      <button onClick={this.logout}>Logout</button> :
-      <button onClick={this.login}>Login</button>;
+  const {
+    
+    logout,
+  } = useAuth0();
+   
+  
     return (
       <nav className="navbar" >
         <Link to="/" className="navbar-brand navbar-left"> <img src={Sun} style={{
@@ -40,31 +33,41 @@ export default withOktaAuth(class Navbar extends Component {
                             <Link to="/" className="nav-link" >Exercises</Link>
                             </Button>
                         </li>
+
                         <li className="navbar-item mr-2 ">
                             <Button type='submit' size='lg' variant='outline-light'>
                             <Link to="/create" className="nav-link">Create Exercise Log</Link>
                             
                             </Button>
                         </li>
-                        <li className="navbar-item mr-2">
+
+                        {isAuthenticated ? <li className="navbar-item mr-2">
                             <Button type='submit' size='lg' variant='outline-light'>
                             <Link to="/user" className="nav-link">Create Client</Link>
                             </Button>
-                        </li>
-                        <li className="navbar-item mr-2">
+                        </li> : ''}
+                        
+                        {isAuthenticated ? <li className="navbar-item mr-2">
                             <Button type='submit' size='lg' variant='outline-light'>
                             <Link to="/profile" className="nav-link">Clients Progress</Link>
                             </Button>
+                        </li> : ''}
+
+                        <li className="navbar-item mr-2" >
+                        { !isAuthenticated ? (<Button type='submit' size='lg' variant='outline-light'
+                        onClick={() => loginWithRedirect()}>Log In
+                        </Button>) : (<Button type='submit' size='lg' variant='outline-light'
+                        onClick={() => logout({ returnTo: window.location.origin })}>
+                        Log Out
+                        </Button> )}
                         </li>
-                        {/* <li className="navbar-item mr-2">
-                        <Button type='' size='lg' variant='outline-light'>
-                        <Link to="/login">Login</Link>
-                        </Button>
-                        </li> */}
+
                     </ul>
           </div>
         
       </nav>
     );
-  }
-})
+  
+}
+
+export default Navbar;
