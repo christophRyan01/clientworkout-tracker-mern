@@ -74,6 +74,7 @@ export default class ClientProgress extends Component {
                 </tbody>
         </table>
     </div>
+    <div className="bmi">
         <iframe async title={'BMI'} className="bmi"
         src="https://bmicalculatorusa.com/widgets/widget.php?t=720x300" 
         style={{
@@ -81,6 +82,7 @@ export default class ClientProgress extends Component {
           height:300, 
           frameborder:5}}>
           </iframe>
+    </div>
             </>
     )
   }

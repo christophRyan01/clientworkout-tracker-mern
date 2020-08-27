@@ -36,8 +36,12 @@ body {
   .button {
 background-color: #fff;  }
 
-a {
+.nav-link, a {
   color: white;
   text-decoration: none;
   background-color: transparent;
+}
+.bmi {
+  display: flex;
+  justify-content: center;
 }
