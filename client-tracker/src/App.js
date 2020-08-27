@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-          <div className="container-fluid">
+          <div id='pageContainer' className="container-fluid">
             <Navbar />
             <br/>
             <Route path="/" exact={true} component={ ExercisesList } />

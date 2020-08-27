@@ -10,18 +10,15 @@ import '../App.css'
 const Navbar = () => {
 
   const {
-    isAuthenticated,
-    loginWithRedirect,
-  } = useAuth0();
+        isAuthenticated,
+        loginWithRedirect,
+        logout
+        } = useAuth0();
 
-  const {
-    
-    logout,
-  } = useAuth0();
    
   
     return (
-      <nav className="navbar" >
+      <nav className="navbar" id="navbar" >
         <Link to="/" className="navbar-brand navbar-left"> <img src={Sun} style={{
           width: 100,
           height: 100

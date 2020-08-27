@@ -61,10 +61,10 @@ export default class ClientProgress extends Component {
             <thead className="thead-light">
                 <tr>
                     <th>Client</th>
-                    <th>Current Weight</th>
-                    <th>Goal Weight</th>
-                    <th>Days Per Week</th>
-                    <th>Pounds Lost</th>
+                    <th>Current Weight (lb's)</th>
+                    <th>Goal Weight (lb's)</th>
+                    <th>Workouts Per Week</th>
+                    <th>Pounds Lost (lb's)</th>
                     <th>On Track</th>
                     <th>Update</th>
                 </tr>
