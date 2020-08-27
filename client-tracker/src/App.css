@@ -33,11 +33,11 @@ body {
   display: flex;
   justify-content: center;
 }
-h3,th {
-  font-family: sans-serif;
+/* h3,th {
+  /* font-family: sans-serif;
   font-style: italic;
   font-weight: 600;
-}
+} */
 
 .container-fluid{
   background: rgb(0,0,0);
@@ -63,3 +63,11 @@ h3,th {
   box-shadow: 5px 5px 5px 5px #37383c24;
 }
 
+#form-group, #log{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#header{
+  padding-left: 20px;
+}

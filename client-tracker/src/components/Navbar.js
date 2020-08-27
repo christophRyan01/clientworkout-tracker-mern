@@ -20,9 +20,9 @@ const Navbar = () => {
     return (
       <nav className="navbar" id="navbar" >
         <Link to="/" className="navbar-brand navbar-left"> <img src={Sun} style={{
-          width: 100,
-          height: 100
-        }} alt='' /></Link>
+              width: 100,
+              height: 100
+            }} alt='' /></Link>
           <div className="buttons" >
                     <ul className="nav ">
                         <li className="navbar-item mr-2" >
@@ -38,29 +38,37 @@ const Navbar = () => {
                             </Button>
                         </li>
 
-                        {isAuthenticated ? <li className="navbar-item mr-2">
+                        {isAuthenticated ? 
+                        <li className="navbar-item mr-2">
                             <Button type='submit' size='lg' variant='outline-light'>
                             <Link to="/user" className="nav-link">Create Client</Link>
                             </Button>
                         </li> : ''}
                         
-                        {isAuthenticated ? <li className="navbar-item mr-2">
+                        {isAuthenticated ? 
+                        <li className="navbar-item mr-2">
                             <Button type='submit' size='lg' variant='outline-light'>
                             <Link to="/profile" className="nav-link">Clients Progress</Link>
                             </Button>
                         </li> : ''}
 
                         <li className="navbar-item mr-2" >
-                        { !isAuthenticated ? (<Button type='submit' size='lg' variant='outline-light'
-                        onClick={() => loginWithRedirect()}>Log In
-                        </Button>) : (<Button type='submit' size='lg' variant='outline-light'
-                        onClick={() => logout({ returnTo: window.location.origin })}>
-                        Log Out
+                        { !isAuthenticated ? 
+                        (<Button  type='submit' 
+                                  size='lg' 
+                                  variant='outline-light'
+                                  onClick={() => loginWithRedirect()}>
+                                  Log In
+                        </Button>) : 
+                        (<Button  type='submit' 
+                                  size='lg' 
+                                  variant='outline-light'
+                                  onClick={() => logout({ returnTo: window.location.origin })}>
+                                  Log Out
                         </Button> )}
                         </li>
-
                     </ul>
-          </div>
+           </div>
         
       </nav>
     );

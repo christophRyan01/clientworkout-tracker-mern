@@ -101,18 +101,18 @@ export default class EditExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const Workout = {
-      username: this.state.username,
-      description: this.state.description,
-      duration: this.state.duration,
-      reps: this.state.reps,
-      sets: this.state.sets,
-      distance: this.state.distance,
-      date: this.state.date,
-    };
+  const Workout = {
+    username: this.state.username,
+    description: this.state.description,
+    duration: this.state.duration,
+    reps: this.state.reps,
+    sets: this.state.sets,
+    distance: this.state.distance,
+    date: this.state.date,
+  };
 
-    axios.post('http://localhost:4000/workouts/update/'+this.props.match.params.id, Workout)
-      .then(res => console.log(res.data));
+  axios.post('http://localhost:4000/workouts/update/'+this.props.match.params.id, Workout)
+    .then(res => console.log(res.data));
     
     window.location = '/';
   }
@@ -120,9 +120,9 @@ export default class EditExercise extends Component {
   render() {
     return (
       <div>
-        <h3>Edit Exercise Log</h3>
+        <h3 id="header" >Edit Exercise Log</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group" id='form-group'> 
             <label>Client: </label>
             <select ref="userInput"
                 className="form-control"
@@ -138,7 +138,7 @@ export default class EditExercise extends Component {
                 }
             </select>
           </div>
-          <div className="form-group"> 
+          <div className="form-group" id='form-group'> 
             <label>Description: </label>
             <input  type="text"
                 required
@@ -147,7 +147,7 @@ export default class EditExercise extends Component {
                 onChange={this.onChangeDescription}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Duration (in minutes): </label>
             <input 
                 type="text" 
@@ -156,7 +156,7 @@ export default class EditExercise extends Component {
                 onChange={this.onChangeDuration}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Reps: </label>
             <input 
                 type="text" 
@@ -165,7 +165,7 @@ export default class EditExercise extends Component {
                 onChange={this.onChangeReps}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Sets:  </label>
             <input 
                 type="text" 
@@ -174,7 +174,7 @@ export default class EditExercise extends Component {
                 onChange={this.onChangeSets}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Distance (in miles): </label>
             <input 
                 type="text" 
@@ -183,7 +183,7 @@ export default class EditExercise extends Component {
                 onChange={this.onChangeDistance}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Date: </label>
             <DatePicker
               selected={this.state.date}
@@ -191,7 +191,7 @@ export default class EditExercise extends Component {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
           </div>
         </form>

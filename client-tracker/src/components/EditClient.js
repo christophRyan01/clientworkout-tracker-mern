@@ -45,11 +45,7 @@ export default class CreateClient extends Component {
 
       axios.get('http://localhost:4000/users/')
       .then(response => {
-        this.setState({ users: response.data.map(user => user.username) });
-        // this.setState({ weight: response.data.map(user => user.currentweight) });
-        // this.setState({ goal: response.data.map(user => user.goalweight) });
-        // this.setState({ poundsDown: response.data.map(user => user.poundslost) });
-        
+        this.setState({ users: response.data.map(user => user.username) });        
       })
       .catch((error) => {
         console.log(error);
@@ -118,9 +114,9 @@ export default class CreateClient extends Component {
   render() {
     return (
       <div>
-        <h3>Edit Client</h3>
+        <h3 id="header" >Edit Client</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group" id='form-group'> 
             <label>Client Name: </label>
             <select ref="userInput"
                 className="form-control"
@@ -136,7 +132,7 @@ export default class CreateClient extends Component {
                 }
             </select>
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Current Weight: </label>
             <input 
                 type="text" 
@@ -145,7 +141,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeCurrentWeight}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Goal Weight: </label>
             <input 
                 type="text" 
@@ -154,7 +150,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeGoalWeight}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Days Per Week: </label>
             <input 
                 type="text" 
@@ -163,7 +159,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeDaysPerWeek}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Pounds Lost: </label>
             <input 
                 type="text" 
@@ -172,7 +168,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangePoundsLost}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>On Track: </label>
             <input 
                 type="text" 
@@ -181,7 +177,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeOnTrack}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <input type="submit" value="Update Client" className="btn btn-primary" />
           </div>
         </form>

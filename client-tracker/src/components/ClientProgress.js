@@ -13,7 +13,7 @@ const Client = props => (
     <td>{props.user.poundslost}</td>
     <td>{props.user.ontrack}</td>
     <td>
-      <Link to={"/edit-client/"+props.user._id}>Edit</Link> | 
+      <Link to={"/edit-client/"+props.user._id}>Edit</Link> |{' '} 
       <a href="/profile" onClick={() => { props.deleteUser(props.user._id) }}>Delete</a>
     </td>
   </tr>
@@ -55,35 +55,35 @@ export default class ClientProgress extends Component {
   render() {
     return (
       <>
-      <div>
-        <h3>Logged Clients</h3>
-        <table className="table">
-            <thead className="thead-light">
-                <tr>
-                    <th>Client</th>
-                    <th>Current Weight (lb's)</th>
-                    <th>Goal Weight (lb's)</th>
-                    <th>Workouts Per Week</th>
-                    <th>Pounds Lost (lb's)</th>
-                    <th>On Track</th>
-                    <th>Update</th>
-                </tr>
-                </thead>
-                <tbody>
-                { this.clientList() }
-                </tbody>
-        </table>
-    </div>
-    <div className="bmi">
-        <iframe async title={'BMI'} className="bmi"
-        src="https://bmicalculatorusa.com/widgets/widget.php?t=720x300" 
-        style={{
-          width:720, 
-          height:300, 
-          frameborder:5}}>
-          </iframe>
-    </div>
-            </>
+        <div id="log">
+          <h3>Logged Clients</h3>
+          <table className="table">
+              <thead className="thead-light">
+                  <tr>
+                      <th>Client</th>
+                      <th>Current Weight (lb's)</th>
+                      <th>Goal Weight (lb's)</th>
+                      <th>Workouts Per Week</th>
+                      <th>Pounds Lost (lb's)</th>
+                      <th>On Track</th>
+                      <th>Update</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  { this.clientList() }
+                  </tbody>
+          </table>
+      </div>
+      <div className="bmi">
+          <iframe async title={'BMI'} className="bmi"
+          src="https://bmicalculatorusa.com/widgets/widget.php?t=720x300" 
+          style={{
+            width:720, 
+            height:300, 
+            frameborder:5}}>
+            </iframe>
+      </div>
+    </>
     )
   }
 }

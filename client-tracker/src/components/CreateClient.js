@@ -64,33 +64,33 @@ export default class CreateClient extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const client = {
-      username: this.state.username,
-      currentweight: this.state.currentweight,
-      goalweight: this.state.goalweight,
-      daysperweek: this.state.daysperweek,
-      poundslost: this.state.poundslost,
-      ontrack: this.state.ontrack,
-    }
+  const client = {
+    username: this.state.username,
+    currentweight: this.state.currentweight,
+    goalweight: this.state.goalweight,
+    daysperweek: this.state.daysperweek,
+    poundslost: this.state.poundslost,
+    ontrack: this.state.ontrack,
+  }
 
-    axios.post('http://localhost:4000/users/create-client', client)
-      .then(res => console.log(res.data));
+  axios.post('http://localhost:4000/users/create-client', client)
+    .then(res => console.log(res.data));
 
-    this.setState({ 
-      username: '',
-      currentweight: 0,
-      goalweight: 0,
-      daysperweek: 0,
-      poundslost: 0,
-      ontrack: '', })
+  this.setState({ 
+    username: '',
+    currentweight: 0,
+    goalweight: 0,
+    daysperweek: 0,
+    poundslost: 0,
+    ontrack: '', })
   }
 
   render() {
     return (
       <div>
-        <h3>Create Client</h3>
+        <h3 id="header">Create Client</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group" id='form-group'> 
             <label>Client Name: </label>
             <input  type="text"
                 required
@@ -99,7 +99,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeUsername}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Current Weight: </label>
             <input 
                 type="text" 
@@ -108,7 +108,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeCurrentWeight}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Goal Weight: </label>
             <input 
                 type="text" 
@@ -117,7 +117,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeGoalWeight}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Days Per Week: </label>
             <input 
                 type="text" 
@@ -126,7 +126,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeDaysPerWeek}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Pounds Lost: </label>
             <input 
                 type="text" 
@@ -135,7 +135,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangePoundsLost}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>On Track: </label>
             <input 
                 type="text" 
@@ -144,7 +144,7 @@ export default class CreateClient extends Component {
                 onChange={this.onChangeOnTrack}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <input type="submit" value="Create Client" className="btn btn-primary" />
           </div>
         </form>

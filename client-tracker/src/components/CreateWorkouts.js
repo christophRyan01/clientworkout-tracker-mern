@@ -101,9 +101,9 @@ export default class CreateExercise extends Component {
   render() {
     return (
       <div>
-        <h3>Create New Workout Log</h3>
+        <h3 id="header">Create New Workout Log</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group" id='form-group'> 
             <label>Client: </label>
             <select ref="userInput"
                 required
@@ -120,7 +120,7 @@ export default class CreateExercise extends Component {
                 }
             </select>
           </div>
-          <div className="form-group"> 
+          <div className="form-group" id='form-group'> 
             <label>Description: </label>
             <input  type="text"
                 required
@@ -129,7 +129,7 @@ export default class CreateExercise extends Component {
                 onChange={this.onChangeDescription}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Duration (in minutes): </label>
             <input 
                 type="text" 
@@ -138,16 +138,16 @@ export default class CreateExercise extends Component {
                 onChange={this.onChangeDuration}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Reps: </label>
             <input 
                 type="text" 
-                className="form-control"
+                className="form-control id='form-group'"
                 value={this.state.reps}
                 onChange={this.onChangeReps}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Sets:  </label>
             <input 
                 type="text" 
@@ -156,7 +156,7 @@ export default class CreateExercise extends Component {
                 onChange={this.onChangeSets}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Distance (in miles): </label>
             <input 
                 type="text" 
@@ -165,7 +165,7 @@ export default class CreateExercise extends Component {
                 onChange={this.onChangeDistance}
                 />
           </div>
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <label>Date: </label>
             <div>
               <DatePicker
@@ -175,7 +175,7 @@ export default class CreateExercise extends Component {
             </div>
           </div>
 
-          <div className="form-group">
+          <div className="form-group" id='form-group'>
             <input type="submit" value="Create Workout Log" className="btn btn-primary" />
           </div>
         </form>

@@ -29,7 +29,6 @@ connection.once('open', () => {
 app.use('/workouts', workouts);
 app.use('/users', users);
 
-if (process.env.NODE_ENV === 'production')
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
