@@ -73,7 +73,7 @@ export default class CreateClient extends Component {
     ontrack: this.state.ontrack,
   }
 
-  axios.post('http://localhost:4000/users/create-client', client)
+  axios.post('http://localhost:4000/users/create-client' || process.env.REACT_APP_API_URL/users/create-client, client)
     .then(res => console.log(res.data));
 
   this.setState({ 

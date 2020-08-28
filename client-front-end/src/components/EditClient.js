@@ -101,7 +101,7 @@ export default class CreateClient extends Component {
       ontrack: this.state.ontrack,
     }
 
-    axios.post('http://localhost:4000/users/update/'+this.props.match.params.id, Client)
+    axios.post('http://localhost:4000/users/update/'+this.props.match.params.id || process.env.REACT_APP_API_URL/users/update/+this.props.match.params.id, Client)
       .then(res => console.log(res.data));
 
     window.location = '/profile';

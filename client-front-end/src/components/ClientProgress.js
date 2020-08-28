@@ -4,6 +4,7 @@ import iframe from 'react-iframe'
 import '../App.css'
 import axios from 'axios';
 
+
 const Client = props => (
   <tr>
     <td>{props.user.username}</td>
@@ -27,7 +28,7 @@ export default class ClientProgress extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/users/')
+    axios.get('http://localhost:4000/users/' || process.env.REACT_APP_API_URL)
      .then(response => {
        this.setState({ users: response.data });
      })
@@ -37,7 +38,7 @@ export default class ClientProgress extends Component {
   }
 
   deleteUser(id) {
-    axios.delete('http://localhost:4000/users/'+id)
+    axios.delete('http://localhost:4000/users/'+id || process.env.REACT_APP_API_URL+id)
       .then(res => console.log(res.data));
     this.setState({
       users: this.state.users.filter(el => el._id !== id)
