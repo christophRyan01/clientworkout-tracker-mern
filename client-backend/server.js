@@ -36,9 +36,9 @@ app.use('/workouts', workouts);
 app.use('/users', users);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client-tracker/build'))
+  app.use(express.static('client-front-end/build'))
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client-tracker', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client-front-end', 'build', 'index.html'));
   })
 }
 
