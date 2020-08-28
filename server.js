@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended: false}))
 
 const connectionString = 'mongodb://localhost/client_tracker'
 const url = process.env.MONGODB_URI;
-mongoose.connect(url || connectionString || process.env.REACT_APP_API_URL , { 
+mongoose.connect( url || connectionString || process.env.REACT_APP_API_URL , { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -38,7 +38,7 @@ app.use('/users', users);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client-front-end/build'))
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client-front-end', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client-front-end', 'build', 'index.html'));
   })
 }
 
