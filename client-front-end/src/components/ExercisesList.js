@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../App.css'
 
 const herokuUrl = 'process.env.REACT_APP_API_URL'
+const url = 'http://localhost:4000'
 
 
 const Exercise = props => (
@@ -31,7 +32,7 @@ export default class ExercisesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/workouts/' || `${herokuUrl}/workouts` )
+    axios.get(`${url}/workouts/` || `${herokuUrl}/workouts/` )
      .then(response => {
        this.setState({ exercises: response.data });
      })
@@ -41,7 +42,7 @@ export default class ExercisesList extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete('http://localhost:4000/workouts/'+id || `${herokuUrl}/workouts/`+id)
+    axios.delete(`${url}/workouts/`+id || `${herokuUrl}/workouts/`+id)
       .then(res => console.log(res.data));
     this.setState({
       exercises: this.state.exercises.filter(el => el._id !== id)

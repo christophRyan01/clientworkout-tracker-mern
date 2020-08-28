@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../App.css'
 
 const herokuUrl = 'process.env.REACT_APP_API_URL'
+const url = 'http://localhost:4000'
 
 export default class EditExercise extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/workouts/'+this.props.match.params.id || `${herokuUrl}/workouts/`+this.props.match.params.id)
+    axios.get(`${url}/workouts/`+this.props.match.params.id || `${herokuUrl}/workouts/`+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -48,7 +49,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/users/' || `${herokuUrl}/users` )
+    axios.get(`${url}/users/` || `${herokuUrl}/users` )
       .then(response => {
         this.setState({ users: response.data.map(user => user.username) });
       })
@@ -112,7 +113,7 @@ export default class EditExercise extends Component {
     date: this.state.date,
   };
 
-  axios.post('http://localhost:4000/workouts/update/'+this.props.match.params.id || `${herokuUrl}/workouts/update/`+this.props.match.params.id, Workout)
+  axios.post(`${url}/workouts/update/`+this.props.match.params.id || `${herokuUrl}/workouts/update/`+this.props.match.params.id, Workout)
     .then(res => console.log(res.data));
     
     window.location = '/';

@@ -4,8 +4,8 @@ import iframe from 'react-iframe'
 import '../App.css'
 import axios from 'axios';
 
-const herokuUrl = 'process.env.REACT_APP_API_URL'
-
+const herokuUrl = process.env.REACT_APP_API_URL
+const url = 'http://localhost:4000'
 
 const Client = props => (
   <tr>
@@ -30,7 +30,7 @@ export default class ClientProgress extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/users/' || `${herokuUrl}/users`)
+    axios.get(`${url}/users/` || `${herokuUrl}/users`)
      .then(response => {
        this.setState({ users: response.data });
      })
@@ -40,7 +40,7 @@ export default class ClientProgress extends Component {
   }
 
   deleteUser(id) {
-    axios.delete('http://localhost:4000/users/'+id || `${herokuUrl}/users`+id)
+    axios.delete(`${url}/users/`+id|| `${herokuUrl}/users`+id)
       .then(res => console.log(res.data));
     this.setState({
       users: this.state.users.filter(el => el._id !== id)
