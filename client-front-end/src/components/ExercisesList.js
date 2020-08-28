@@ -4,8 +4,7 @@ import iframe from 'react-iframe'
 import axios from 'axios';
 import '../App.css'
 
-const herokuUrl = 'process.env.REACT_APP_API_URL'
-const url = 'http://localhost:4000'
+const url = 'http://localhost:4000 || process.env.REACT_APP_API_URL'
 
 
 const Exercise = props => (
@@ -18,7 +17,7 @@ const Exercise = props => (
     <td>{props.exercise.distance}</td>
     <td>{props.exercise.date.substring(0,10)}</td>
     <td>
-      <Link to={"/edit/"+props.exercise._id || `${herokuUrl}/edit/`+props.exercise._id}>Edit</Link> |{' '} 
+      <Link to={"/edit/"+props.exercise._id}>Edit</Link> |{' '} 
       <a href="/" onClick={() => { props.deleteExercise(props.exercise._id) }}>Delete</a>
     </td>
   </tr>
@@ -32,7 +31,7 @@ export default class ExercisesList extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${url}/workouts/` || `${herokuUrl}/workouts/` )
+    axios.get(`${url}/workouts/` )
      .then(response => {
        this.setState({ exercises: response.data });
      })
@@ -42,7 +41,7 @@ export default class ExercisesList extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete(`${url}/workouts/`+id || `${herokuUrl}/workouts/`+id)
+    axios.delete(`${url}/workouts/`+id)
       .then(res => console.log(res.data));
     this.setState({
       exercises: this.state.exercises.filter(el => el._id !== id)

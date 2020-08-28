@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../App.css'
 
-const herokuUrl = 'process.env.REACT_APP_API_URL'
-const url = 'http://localhost:4000'
+const url = 'http://localhost:4000 || process.env.REACT_APP_API_URL'
 
 export default class CreateClient extends Component {
   constructor(props) {
@@ -29,7 +28,7 @@ export default class CreateClient extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${url}/users/`+this.props.match.params.id || `${herokuUrl}/users/`+this.props.match.params.id)
+    axios.get(`${url}/users/`+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -103,7 +102,7 @@ export default class CreateClient extends Component {
       ontrack: this.state.ontrack,
     }
 
-    axios.post(`${url}/users/update/`+this.props.match.params.id || `${herokuUrl}/users/update/`+this.props.match.params.id, Client)
+    axios.post(`${url}/users/update/`+this.props.match.params.id, Client)
       .then(res => console.log(res.data));
 
     window.location = '/profile';

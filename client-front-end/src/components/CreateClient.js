@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../App.css'
 
-const herokuUrl = process.env.REACT_APP_API_URL
-const url = 'http://localhost:4000'
+const url = 'http://localhost:4000 || process.env.REACT_APP_API_URL'
 
 export default class CreateClient extends Component {
   constructor(props) {
@@ -75,7 +74,7 @@ export default class CreateClient extends Component {
     ontrack: this.state.ontrack,
   }
 
-  axios.post(`${url}/users/create-client` || `${herokuUrl}/users/create-client`, client)
+  axios.post(`${url}/users/create-client`, client)
     .then(res => console.log(res.data));
 
   this.setState({ 
