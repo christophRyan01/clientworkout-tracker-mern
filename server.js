@@ -6,7 +6,6 @@ require('dotenv').config();
 
 const workouts = require('./routes/workouts');
 const users = require('./routes/users');
-const { dirname } = require('path');
 
 // =====PORT
 const app = express();
@@ -32,7 +31,7 @@ app.use('/workouts', workouts);
 app.use('/users', users);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('./client-tracker/build'))
+  app.use(express.static('client-tracker/build'))
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client-tracker', 'build', 'index.html'));
   })
