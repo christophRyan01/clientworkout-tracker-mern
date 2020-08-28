@@ -4,6 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 import '../App.css'
 
+const herokuUrl = 'process.env.REACT_APP_API_URL'
+
 
 export default class CreateExercise extends Component {
     constructor(props) {
@@ -31,7 +33,7 @@ export default class CreateExercise extends Component {
     }
 
     componentDidMount() {
-      axios.get('http://localhost:4000/users/' || process.env.REACT_APP_API_URL/users)
+      axios.get('http://localhost:4000/users/' || `${herokuUrl}/users`)
       .then(response => {
         if (response.data.length > 0) {
           this.setState({ 
@@ -92,7 +94,7 @@ export default class CreateExercise extends Component {
             date: this.state.date,
     };
 
-        axios.post('http://localhost:4000/workouts/add' || process.env.REACT_APP_API_URL/workouts/add, Workout)
+        axios.post('http://localhost:4000/workouts/add' || `${herokuUrl}/workouts/add`, Workout)
           .then(res => console.log(res.data));
         window.location = '/';
     }

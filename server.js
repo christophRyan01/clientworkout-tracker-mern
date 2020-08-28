@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended: false}))
 
 const connectionString = 'mongodb://localhost/client_tracker'
 const url = process.env.MONGODB_URI;
-mongoose.connect( url || connectionString || process.env.REACT_APP_API_URL , { 
+mongoose.connect( url || connectionString || REACT_APP_API_URL, { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

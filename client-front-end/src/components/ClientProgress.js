@@ -4,6 +4,8 @@ import iframe from 'react-iframe'
 import '../App.css'
 import axios from 'axios';
 
+const herokuUrl = 'process.env.REACT_APP_API_URL'
+
 
 const Client = props => (
   <tr>
@@ -14,7 +16,7 @@ const Client = props => (
     <td>{props.user.poundslost}</td>
     <td>{props.user.ontrack}</td>
     <td>
-      <Link to={"/edit-client/"+props.user._id}>Edit</Link> |{' '} 
+      <Link to={"/edit-client/"+props.user._id || `${herokuUrl}/edit-client/`+props.user._id}>Edit</Link> |{' '} 
       <a href="/profile" onClick={() => { props.deleteUser(props.user._id) }}>Delete</a>
     </td>
   </tr>
@@ -28,7 +30,7 @@ export default class ClientProgress extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/users/' || process.env.REACT_APP_API_URL)
+    axios.get('http://localhost:4000/users/' || `${herokuUrl}/users`)
      .then(response => {
        this.setState({ users: response.data });
      })
@@ -38,7 +40,7 @@ export default class ClientProgress extends Component {
   }
 
   deleteUser(id) {
-    axios.delete('http://localhost:4000/users/'+id || process.env.REACT_APP_API_URL+id)
+    axios.delete('http://localhost:4000/users/'+id || `${herokuUrl}/users`+id)
       .then(res => console.log(res.data));
     this.setState({
       users: this.state.users.filter(el => el._id !== id)

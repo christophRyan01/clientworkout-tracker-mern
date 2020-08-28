@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import '../App.css'
 
+const herokuUrl = 'process.env.REACT_APP_API_URL'
 
 export default class EditExercise extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/workouts/'+this.props.match.params.id || process.env.REACT_APP_API_URL/workouts/+this.props.match.params.id)
+    axios.get('http://localhost:4000/workouts/'+this.props.match.params.id || `${herokuUrl}/workouts/`+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -47,7 +48,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/users/' || process.env.REACT_APP_API_URL/users )
+    axios.get('http://localhost:4000/users/' || `${herokuUrl}/users` )
       .then(response => {
         this.setState({ users: response.data.map(user => user.username) });
       })
@@ -111,7 +112,7 @@ export default class EditExercise extends Component {
     date: this.state.date,
   };
 
-  axios.post('http://localhost:4000/workouts/update/'+this.props.match.params.id || process.env.REACT_APP_API_URL/workouts/update/+this.props.match.params.id, Workout)
+  axios.post('http://localhost:4000/workouts/update/'+this.props.match.params.id || `${herokuUrl}/workouts/update/`+this.props.match.params.id, Workout)
     .then(res => console.log(res.data));
     
     window.location = '/';
